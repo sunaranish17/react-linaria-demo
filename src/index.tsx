@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { css } from "@linaria/core";
+// import { css } from "@linaria/core";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,13 +12,15 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-export const globals = css`
-  :global() {
-    html {
-      box-sizing: border-box;
-    }
-  }
-`
+// export const globals = css`
+//   :global() {
+//     html {
+//       box-sizing: border-box;
+//     }
+//   }
+// `
+
+export { globals } from './styles/global';
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
