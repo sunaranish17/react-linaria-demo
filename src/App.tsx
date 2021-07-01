@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { styled } from "@linaria/react";
 import { css } from "@linaria/core";
-
-const imageComponent = css`
-    display: "grid";
-    gap: "1rem";
-`;
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/pages/Home';
 
 const container = css`
     margin-left: "auto";
     margin-right: "auto";
+`;
+
+const button = css`
+   background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 `;
 
 const textTitle = css`
@@ -24,24 +33,10 @@ const textTitle = css`
 `;
 
 function App() {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [term, setTerm] = useState("");
-
-  useEffect(() => {
-    fetch(`https://pixabay.com/api/?key=${process.env.REACT_APP_API_KEY}&q=${term}&image_type=photo&pretty=true`)
-      .then(res => res.json())
-      .then(data => {
-        setImages(data?.hits);
-        setLoading(false);
-      })
-      .catch(err => console.log("err>>", err))
-  }, [term])
 
   return (
     // <Container>
     //   <AppHeader>
-    //     <Img src={logo} alt="logo" />
     //     <Paragraph>
     //       Edit <code>src/App.tsx</code> and save to reload.
     //     </Paragraph>
@@ -54,22 +49,11 @@ function App() {
     //     </Link>
     //   </AppHeader>
     // </Container>
-    <div className={container}>
-      {/* <ImageSearch searchText={(text) => setTerm(text)} /> */}
-      {
-        !loading && images.length === 0 &&
-        <h1 className={textTitle}>No Images Found</h1>
-      }
-      {loading ?
-        <h1 className={textTitle}>Loading...</h1>
-        :
-        <div className={imageComponent}>
-          {images?.map((image: any) => (
-            // <ImageCard key={image?.id} image={image} />
-            <img src={image?.webformatURL} />
-          ))}
-        </div>}
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" component={Home} />
+      </Switch>
+    </Router>
   );
 }
 
@@ -87,22 +71,6 @@ const AppHeader = styled.header`
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-`
-
-const Img = styled.img`
-  height: 40vmin;
-  pointer-events: none;
-  @media (prefers-reduced-motion: no-preference) {
-    animation: App-logo-spin infinite 20s linear;
-  }
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
 `
 
 const Paragraph = styled.p``
