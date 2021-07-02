@@ -7,6 +7,10 @@ const card = css`
     margin: 0;
 `;
 
+const imageStyle = css `
+    width: 100%;
+`;
+
 interface Props {
     image: any;
 }
@@ -15,13 +19,12 @@ const ImageCard = ({ image }: Props) => {
     const { Meta } = Card;
     return (
         <Card
-        
-            // style={{ width: 300 }}
             className={card}
             cover={
                 <img
                     alt="example"
-                    src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                    src={image?.webformatURL}
+                    className={imageStyle}
                 />
             }
         >
