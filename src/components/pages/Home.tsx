@@ -6,7 +6,7 @@ import ImageCard from '../molecules/ImageCard';
 
 const container = css`
     width: 100%;
-    margin: 0 auto;
+    margin: 50px auto;
     display: flex;
     justify-content: center;
 `;
@@ -57,6 +57,7 @@ const Home = () => {
     }
 
     return (
+        
         <div className={container}>
             {loading ?
                 // <h1 className={text}>Loading...</h1>
