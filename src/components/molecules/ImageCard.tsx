@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Tag } from 'antd';
 import { css } from '@linaria/core';
+// import "antd/dist/antd.css";
 
 const card = css`
     width: 300px;

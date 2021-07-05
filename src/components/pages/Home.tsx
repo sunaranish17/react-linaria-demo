@@ -1,6 +1,9 @@
 import { css } from '@linaria/core';
 import React, { useEffect, useState } from 'react';
 import ImageCard from '../molecules/ImageCard';
+// import "antd/dist/antd.css";
+import { Card, Avatar, Button } from 'antd';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 
 
@@ -37,10 +40,16 @@ const loader = css`
 }
 `;
 
+const primaryButton = css`
+    background-color: greenyellow;
+`;
+
 const Home = () => {
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(false);
     const [term, setTerm] = useState("");
+
+    const { Meta } = Card;
 
     useEffect(() => {
         fetchImages();
@@ -59,7 +68,39 @@ const Home = () => {
     return (
         
         <div className={container}>
-            {loading ?
+            <Card
+    style={{ width: 300 }}
+    cover={
+      <img
+        alt="example"
+        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+      />
+    }
+    actions={[
+      <SettingOutlined key="setting" />,
+      <EditOutlined key="edit" />,
+      <EllipsisOutlined key="ellipsis" />,
+    ]}
+  >
+    <Meta
+      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+      title="Card title"
+      description="This is the description"
+    />
+  </Card>
+
+  <Button type="primary" className={primaryButton}>
+          Primary
+        </Button>
+        <Button >Default</Button>
+        <Button type="dashed" >
+          Dashed
+        </Button>
+        <br />
+        <Button type="link" >
+          Link
+        </Button>
+            {/* {loading ?
                 // <h1 className={text}>Loading...</h1>
                 <div className={loader} />
                 :
@@ -68,7 +109,7 @@ const Home = () => {
                         <ImageCard key={image?.id} image={image} />
                     ))}
                 </div>
-            }
+            } */}
         </div>
     )
 }

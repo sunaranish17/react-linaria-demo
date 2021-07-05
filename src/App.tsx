@@ -4,6 +4,7 @@ import { styled } from "@linaria/react";
 import { css } from "@linaria/core";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
+import "antd/dist/antd.css";
 
 const container = css`
     margin-left: "auto";
