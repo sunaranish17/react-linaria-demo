@@ -1,7 +1,6 @@
 import { css } from '@linaria/core';
 import React, { useEffect, useState } from 'react';
 import ImageCard from '../molecules/ImageCard';
-// import "antd/dist/antd.css";
 import { Card, Avatar, Button } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
@@ -41,7 +40,7 @@ const loader = css`
 `;
 
 const primaryButton = css`
-    background-color: greenyellow;
+    background: greenyellow;
 `;
 
 const Home = () => {
