@@ -48,7 +48,7 @@ const ImageCard = ({ image }: Props) => {
 
     return (
         <Card
-            className={card}
+            // className={card}
             cover={
                 <img
                     alt="example"
@@ -77,7 +77,9 @@ const ImageCard = ({ image }: Props) => {
             <div className={tagDiv}>
                 {
                     tags?.map((tag: any, index: number) => (
+                        // <div>
                         <Tag key={index} color={get_random_hex_color()} className={tagStyle}>#{tag} </Tag>
+                        // </div>
                     ))
                 }
             </div>

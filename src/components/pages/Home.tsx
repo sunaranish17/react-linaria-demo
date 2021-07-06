@@ -1,14 +1,15 @@
 import { css } from '@linaria/core';
 import React, { useEffect, useState } from 'react';
 import ImageCard from '../molecules/ImageCard';
+import ImageSearch from '../molecules/ImageSearch';
 
 
 
 const container = css`
     width: 100%;
     margin: 50px auto;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
 `;
 
 const imageCards = css`
@@ -55,8 +56,10 @@ const Home = () => {
   return (
 
     <div className={container}>
+      {/* <div> */}
+        <ImageSearch searchText={(text: string) => setTerm(text)} />
+      {/* </div> */}
       {loading ?
-        // <h1 className={text}>Loading...</h1>
         <div className={loader} />
         :
         <div className={imageCards}>
