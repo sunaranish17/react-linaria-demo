@@ -25,7 +25,7 @@ const ImageSearch = ({ searchText }: Props) => {
     const [text, setText] = useState("");
 
     const onSubmit = (e: any) => {
-        e.preventDefault();
+        // e.preventDefault();
         searchText(text);
     };
 
@@ -44,8 +44,10 @@ const ImageSearch = ({ searchText }: Props) => {
                 allowClear
                 enterButton="Search"
                 size="large"
-                // onSearch={onSearch}
+                onSearch={onSubmit}
                 // className={inputField}
+                style={{ width: 300 }}
+                onChange={e => setText(e.target.value)} 
             />
         </div>
     )
