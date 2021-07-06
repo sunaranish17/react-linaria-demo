@@ -23,7 +23,6 @@ const tagDiv = css`
 
 const tagStyle = css`
     display: inline-block;
-    background-color: gray;
     border-radius: 9999px;
     padding: 0.25rem 0.75rem;
     color: #FFFFFF;
@@ -37,6 +36,16 @@ interface Props {
 const ImageCard = ({ image }: Props) => {
     const tags = image?.tags?.split(",");
     const { Meta } = Card;
+
+    function get_random_hex_color() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
     return (
         <Card
             className={card}
@@ -68,10 +77,7 @@ const ImageCard = ({ image }: Props) => {
             <div className={tagDiv}>
                 {
                     tags?.map((tag: any, index: number) => (
-                        // <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                        //     #{tag}
-                        // </span>
-                        <Tag key={index} className={tagStyle}>#{tag} </Tag>
+                        <Tag key={index} color={get_random_hex_color()} className={tagStyle}>#{tag} </Tag>
                     ))
                 }
             </div>

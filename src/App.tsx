@@ -1,37 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from "react";
 import './App.css';
-import { styled } from "@linaria/react";
-import { css } from "@linaria/core";
+// import { styled } from "@linaria/react";
+// import { css } from "@linaria/core";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/pages/Home';
-import "antd/dist/antd.css";
-
-const container = css`
-    margin-left: "auto";
-    margin-right: "auto";
-`;
-
-const button = css`
-   background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-`;
-
-const textTitle = css`
-  font-size: "3.75rem";
-      line-height: "1px";
-      text-align: "center";
-      margin-right: "auto";
-      margin-left: "auto";
-      margin-top: 32;
-`;
 
 function App() {
 
@@ -59,25 +31,25 @@ function App() {
 }
 
 
-const Container = styled.div`
-  text-align: center;
-`
+// const Container = styled.div`
+//   text-align: center;
+// `
 
-const AppHeader = styled.header`
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-`
+// const AppHeader = styled.header`
+//   background-color: #282c34;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+// `
 
-const Paragraph = styled.p``
+// const Paragraph = styled.p``
 
-const Link = styled.a`
-  color: #61dafb;
-`
+// const Link = styled.a`
+//   color: #61dafb;
+// `
 
 export default App;
