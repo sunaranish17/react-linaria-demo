@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Tag } from 'antd';
+import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
 const card = css`
@@ -22,6 +23,14 @@ const tagDiv = css`
 `;
 
 const tagStyle = css`
+    display: inline-block;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    color: #FFFFFF;
+    margin: 0.25rem;
+`;
+
+const StyledTag = styled(Tag)`
     display: inline-block;
     border-radius: 9999px;
     padding: 0.25rem 0.75rem;
@@ -77,9 +86,8 @@ const ImageCard = ({ image }: Props) => {
             <div className={tagDiv}>
                 {
                     tags?.map((tag: any, index: number) => (
-                        // <div>
-                        <Tag key={index} color={get_random_hex_color()} className={tagStyle}>#{tag} </Tag>
-                        // </div>
+                        // <Tag key={index} color={get_random_hex_color()} className={tagStyle}>#{tag} </Tag>
+                        <StyledTag color={get_random_hex_color()}>#{tag}</StyledTag>
                     ))
                 }
             </div>

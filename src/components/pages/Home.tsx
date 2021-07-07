@@ -1,4 +1,5 @@
 import { css } from '@linaria/core';
+import { Empty } from 'antd';
 import React, { useEffect, useState } from 'react';
 import ImageCard from '../molecules/ImageCard';
 import ImageSearch from '../molecules/ImageSearch';
@@ -56,9 +57,11 @@ const Home = () => {
   return (
 
     <div className={container}>
-      {/* <div> */}
-        <ImageSearch searchText={(text: string) => setTerm(text)} />
-      {/* </div> */}
+      <ImageSearch searchText={(text: string) => setTerm(text)} />
+      {
+        !loading && images?.length === 0 &&
+        <Empty />
+      }
       {loading ?
         <div className={loader} />
         :
