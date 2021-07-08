@@ -1,13 +1,7 @@
 import React from 'react';
-import { Card, Tag } from 'antd';
+import { Button, Card, Tag } from 'antd';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
-
-const card = css`
-    width: 300px;
-    margin: 0;
-    margin-bottom: 20px;
-`;
 
 const imageStyle = css`
     width: 100%;
@@ -30,12 +24,28 @@ const tagStyle = css`
     margin: 0.25rem;
 `;
 
+const card = css `
+    & .ant-btn-primary:hover, .ant-btn:focus {
+        color: #222222;
+        border: 1px solid #000000;
+    };
+    & .ant-btn-primary:active {
+        color: #222222;
+        border: 1px solid #000000;
+    };
+`;
+
+const button = css`
+    width: 200px;
+`;
+
 const StyledTag = styled(Tag)`
-    display: inline-block !important;
-    border-radius: 9999px !important;
-    padding: 0.25rem 0.75rem !important;
-    color: #FFFFFF !important;
-    margin: 0.25rem !important;
+    display: inline-block;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    color: #FFFFFF;
+    margin: 0.25rem;
+    width: ${(props: any) => props?.size}px;
 `;
 
 interface Props {
@@ -55,9 +65,13 @@ const ImageCard = ({ image }: Props) => {
         return color;
     }
 
+    function handleClick () {
+        alert("Button Clicked")
+    }
+
     return (
         <Card
-            // className={card}
+            className={card}
             cover={
                 <img
                     alt="example"
@@ -86,11 +100,12 @@ const ImageCard = ({ image }: Props) => {
             <div className={tagDiv}>
                 {
                     tags?.map((tag: any, index: number) => (
-                        <Tag key={index} color={get_random_hex_color()} className={tagStyle}>#{tag} </Tag>
-                        // <StyledTag color={get_random_hex_color()}>#{tag}</StyledTag>
+                        // <Tag key={index} color={get_random_hex_color()} className={tagStyle}>#{tag} </Tag>
+                        <StyledTag color={get_random_hex_color()}>#{tag}</StyledTag>
                     ))
                 }
             </div>
+            <Button className={button} type="primary" onClick={handleClick}> Button </Button>
         </Card>
     )
 }
