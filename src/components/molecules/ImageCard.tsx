@@ -31,11 +31,11 @@ const tagStyle = css`
 `;
 
 const StyledTag = styled(Tag)`
-    display: inline-block;
-    border-radius: 9999px;
-    padding: 0.25rem 0.75rem;
-    color: #FFFFFF;
-    margin: 0.25rem;
+    display: inline-block !important;
+    border-radius: 9999px !important;
+    padding: 0.25rem 0.75rem !important;
+    color: #FFFFFF !important;
+    margin: 0.25rem !important;
 `;
 
 interface Props {
@@ -86,8 +86,8 @@ const ImageCard = ({ image }: Props) => {
             <div className={tagDiv}>
                 {
                     tags?.map((tag: any, index: number) => (
-                        // <Tag key={index} color={get_random_hex_color()} className={tagStyle}>#{tag} </Tag>
-                        <StyledTag color={get_random_hex_color()}>#{tag}</StyledTag>
+                        <Tag key={index} color={get_random_hex_color()} className={tagStyle}>#{tag} </Tag>
+                        // <StyledTag color={get_random_hex_color()}>#{tag}</StyledTag>
                     ))
                 }
             </div>
